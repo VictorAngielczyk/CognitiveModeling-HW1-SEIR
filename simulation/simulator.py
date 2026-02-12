@@ -1,6 +1,10 @@
 import numpy as np
 
-def simulate_seir(parameters, init_conditions, days=51):
+def simulate_seir(
+    parameters: tuple[np.float64, np.float64, np.float64] = (3.0, 0.5, 0.5),
+    init_conditions: tuple[np.float64, np.float64, np.float64, np.float64] = (9999.0, 1.0, 0.0, 0.0),
+    days: int = 51,
+)-> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     """TODO"""
 
     # Extract parameters and initial conditions (Your code here)
