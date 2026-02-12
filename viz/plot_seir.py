@@ -1,13 +1,21 @@
 import matplotlib.pyplot as plt
+import numpy as np
 
-
-def plot_results(infected):
+def plot_results(infected: np.ndarray[np.float64],
+                 *,
+                 figsize:tuple[int, int]=(10, 6),
+                 color:str='#AA0000',
+                 linestyle:str='dashed',
+                 marker:str='o',
+                 xlabel:str='Day',
+                 ylabel:str='Number of Infected Cases',
+                 title:str='Simulated Outbreak') -> plt.Figure:
     """Plots the time series of infected cases."""
     
-    fig, ax = plt.subplots(1, 1, figsize=(10, 6))
-    ax.plot(infected, color='#AA0000', linestyle='dashed', marker='o')
-    ax.set_xlabel('Day', fontsize=16)
-    ax.set_ylabel('Number of Infected Cases', fontsize=16)
-    ax.set_title('Simulated Oubreak', fontsize=20)
+    fig, ax = plt.subplots(1, 1, figsize=figsize)
+    ax.plot(infected, color=color, linestyle=linestyle, marker=marker)
+    ax.set_xlabel(xlabel, fontsize=16)
+    ax.set_ylabel(ylabel, fontsize=16)
+    ax.set_title(title, fontsize=20)
     ax.grid(alpha=0.2)
     return fig
