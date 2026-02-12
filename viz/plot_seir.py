@@ -1,9 +1,10 @@
 import matplotlib.pyplot as plt
 import numpy as np
+from typing import Tuple
 
 def plot_results(infected: np.ndarray[np.float64],
                  *,
-                 figsize:tuple[int, int]=(10, 6),
+                 figsize:Tuple[int, int]=(10, 6),
                  color:str='#AA0000',
                  linestyle:str='dashed',
                  marker:str='o',
