@@ -1,3 +1,4 @@
+import numpy as np
 
 def simulate_seir(parameters, init_conditions, days=51):
     """TODO"""
@@ -6,10 +7,13 @@ def simulate_seir(parameters, init_conditions, days=51):
     beta, sigma, gamma = parameters
     S0, E0, I0, R0 = init_conditions
     N = S0 + E0 + I0 + R0
-    S = [S0] + [None] * (days-1)
-    E = [E0] + [None] * (days-1)
-    I = [I0] + [None] * (days-1)
-    R = [R0] + [None] * (days-1)
+
+    # Use NumPy arrays instead of Python lists
+    S = np.empty(days, dtype=float)
+    E = np.empty(days, dtype=float)
+    I = np.empty(days, dtype=float)
+    R = np.empty(days, dtype=float)
+    S[0], E[0], I[0], R[0] = S0, E0, I0, R0
     
     # For each day, perform SEIR update
     for t in range(1, days):
